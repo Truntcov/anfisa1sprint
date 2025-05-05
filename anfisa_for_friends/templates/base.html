@@ -1,4 +1,4 @@
-<!--{% load static %}
+{% comment %} <!--{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -18,22 +18,24 @@
   </body>
 </html>
 Из about.html
--->
-
+--> {% endcomment %}
+{% load static %}
 <!DOCTYPE html> 
 <html lang="ru"> 
   <head>    
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/fav/fav.ico" type="image">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    {% comment %} <link rel="icon" href="img/fav/fav.ico" type="image"> {% endcomment %}
+    <link rel="icon" href="{% static 'img/fav/fav.ico' %}" type="image">
+    {% comment %} <link rel="stylesheet" href="css/bootstrap.min.css"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>
        {% block title %}
        {% endblock %}
     </title>       
   </head>
   <body>
-    <!-- Вынести в header.html -->
+    {% comment %} <!-- Вынести в header.html --> {% endcomment %}
     {% comment %} <header>
 	    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
         <div class="container">
@@ -74,27 +76,29 @@
         </div>
       </nav>
     </header> {% endcomment %}
-    <!-- Конец header.html -->
-     {% extends "includes/header.html" %}
+    {% comment %} <!-- Конец header.html --> {% endcomment %}
+    {% include "includes/header.html" %}
     <main class="pt-5 my-5">       
       <div class="container">
-        <!-- Блок content -->
+        {% comment %} <!-- Блок content --> {% endcomment %}
         {% comment %} <h1 class="pb-2 mb-0">О проекте</h1>
         <p>
           Каталог экзотических сортов мороженого.
         </p> {% endcomment %}
-        <!-- Конец блока content -->
+        {% comment %} <!-- Конец блока content --> {% endcomment %}
          {% block content %}
          {% endblock %}
       </div> 
     </main>
-    <!-- Вынести в footer.html -->
+    {% comment %} <!-- Вынести в footer.html --> {% endcomment %}
     {% comment %} <footer class="border-top text-center py-3">
       <p>© 2022 «MyKit Corp»</p>
     </footer> {% endcomment %}
-    <!-- Конец footer.html -->     
-    {% extends "includes/footer.html" %}
+    {% comment %} <!-- Конец footer.html -->      {% endcomment %}
+    {% include "includes/footer.html" %}
   </body>
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    {% comment %} <script src="js/jquery-3.2.1.slim.min.js"></script> {% endcomment %}
+    <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+    {% comment %} <script src="js/bootstrap.min.js"></script> {% endcomment %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </html>
