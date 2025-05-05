@@ -1,20 +1,3 @@
-{% comment %} {% load static %}
-<header>
-  <img src="{% static 'img/logo.png' %}" height="50" alt="">
-  <nav>
-    <ul>
-      <li>
-        <a href="{% url 'homepage:index' %}">Главная</a>  
-      </li>
-      <li>
-        <a href="{% url 'ice_cream:ice_cream_list' %}">Каталог мороженого</a>       
-      </li>
-      <li>
-        <a href="{% url 'about:description' %}">О проекте</a>
-      </li>
-    </ul>
-  </nav>
-</header> {% endcomment %}
 {% load static %}
 {% with request.resolver_match.view_name as view_name %}
 <header>
@@ -33,8 +16,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">                      
         <ul class="nav nav-pills">
-          <li class="nav-item">              
-            {% comment %} <a class="nav-link" href="index.html"> {% endcomment %}
+          <li class="nav-item">
             <a class="nav-link 
             {% if view_name == 'homepage:index' %}active{% endif %}" 
             href="{% url 'homepage:index' %}">
@@ -42,7 +24,6 @@
             </a> 
           </li>
           <li class="nav-item">
-            {% comment %} <a class="nav-link" href="ice_cream_list.html"> {% endcomment %}
               <a class="nav-link 
               {% if view_name == 'ice_cream:ice_cream_list' %}active{% endif %}" 
               href="{% url 'ice_cream:ice_cream_list' %}">
@@ -50,22 +31,16 @@
             </a> 
           </li>
           <li class="nav-item">
-            {% comment %} <!-- Добавлен класс active --> {% endcomment %}
-            {% comment %} <a class="nav-link active" href="about.html"> {% endcomment %}
               <a class="nav-link 
               {% if view_name == 'about:description' %}active{% endif %}" 
               href="{% url 'about:description' %}">
-              {% comment %} !!! Возникает конфликт файлов. Нужно обновить содержание старых файлов {% endcomment %}
               О проекте
             </a> 
           </li>
         </ul>
       </div> 
-      {% comment %} <a class="navbar-brand" href="index.html"> {% endcomment %}
       <a class="navbar-brand" 
       href="{% url 'homepage:index' %}">
-        {% comment %} <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">
-        {% endcomment %}
         <img src="{% static 'img/logo.png' %}" height="50" class="d-inline-block align-top" alt="">
       </a>         
     </div>

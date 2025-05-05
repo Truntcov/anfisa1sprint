@@ -1,33 +1,10 @@
-{% comment %} <!--{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <link rel="icon" href="{% static 'img/fav/fav.ico' %}" type="image">
-    <title>
-      {% block title %}{% endblock %}
-    </title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  </head>
-  <body>
-    {% include "includes/header.html" %}
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
-    {% include "includes/footer.html" %}   
-  </body>
-</html>
-Из about.html
---> {% endcomment %}
 {% load static %}
 <!DOCTYPE html> 
 <html lang="ru"> 
   <head>    
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% comment %} <link rel="icon" href="img/fav/fav.ico" type="image"> {% endcomment %}
     <link rel="icon" href="{% static 'img/fav/fav.ico' %}" type="image">
-    {% comment %} <link rel="stylesheet" href="css/bootstrap.min.css"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>
        {% block title %}
@@ -35,70 +12,15 @@
     </title>       
   </head>
   <body>
-    {% comment %} <!-- Вынести в header.html --> {% endcomment %}
-    {% comment %} <header>
-	    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
-        <div class="container">
-          <div 
-            class="navbar-toggler" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarNav" 
-            aria-controls="navbarNav" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation"
-            >
-            <span class="navbar-toggler-icon"></span>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarNav">                      
-            <ul class="nav nav-pills">
-              <li class="nav-item">              
-                <a class="nav-link" href="index.html">
-                  Главная
-                </a> 
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="ice_cream_list.html">
-                  Каталог мороженого
-                </a> 
-              </li>
-              <li class="nav-item">
-                <!-- Добавлен класс active -->
-                <a class="nav-link active" href="about.html">
-                  О проекте
-                </a> 
-              </li>
-            </ul>
-          </div> 
-          <a class="navbar-brand" href="index.html">
-            <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">            
-          </a>         
-        </div>
-      </nav>
-    </header> {% endcomment %}
-    {% comment %} <!-- Конец header.html --> {% endcomment %}
     {% include "includes/header.html" %}
     <main class="pt-5 my-5">       
       <div class="container">
-        {% comment %} <!-- Блок content --> {% endcomment %}
-        {% comment %} <h1 class="pb-2 mb-0">О проекте</h1>
-        <p>
-          Каталог экзотических сортов мороженого.
-        </p> {% endcomment %}
-        {% comment %} <!-- Конец блока content --> {% endcomment %}
          {% block content %}
          {% endblock %}
       </div> 
     </main>
-    {% comment %} <!-- Вынести в footer.html --> {% endcomment %}
-    {% comment %} <footer class="border-top text-center py-3">
-      <p>© 2022 «MyKit Corp»</p>
-    </footer> {% endcomment %}
-    {% comment %} <!-- Конец footer.html -->      {% endcomment %}
     {% include "includes/footer.html" %}
   </body>
-    {% comment %} <script src="js/jquery-3.2.1.slim.min.js"></script> {% endcomment %}
     <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
-    {% comment %} <script src="js/bootstrap.min.js"></script> {% endcomment %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </html>
